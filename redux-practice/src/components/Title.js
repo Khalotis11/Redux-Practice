@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { updateTitle } from "../actions";
+
 class Title extends Component {
   state = {
     textInput: ""
@@ -15,16 +17,19 @@ class Title extends Component {
     return (
       <div className="input-container">
         <div className="title">{this.props.title}</div>
-        <form>
-          <input
-            type="text"
-            name="textInput"
-            placeholder="Text Input..."
-            value={this.state.textInput}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Update Title</button>
-        </form>
+        <input
+          type="text"
+          name="textInput"
+          placeholder="Text Input..."
+          value={this.state.textInput}
+          onChange={this.handleChange}
+        />
+        <button
+          onClick={() => this.props.updateTitle(this.state.textInput)}
+          type="submit"
+        >
+          Update Title
+        </button>
       </div>
     );
   }
@@ -36,5 +41,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  {}
+  { updateTitle }
 )(Title);
