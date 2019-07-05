@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.css";
 
+import Title from "./components/Title";
+
 function App() {
   return (
     <div className="App">
-      <h3>Hello from Redux Store!</h3>
+      <div className="title">Hello from Redux Store!</div>
+      <Title />
     </div>
   );
 }
